@@ -1,0 +1,5 @@
+com\sqa\services\GorestService.class
+com\sqa\utils\TestLogger.class
+com\sqa\model\github\GithubUser.class
+com\sqa\model\github\Issue.class
+com\sqa\services\GitHubService.class
