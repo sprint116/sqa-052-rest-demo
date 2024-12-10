@@ -306,6 +306,9 @@ class RestAssuredGoRest implements TestLogger {
 
     @Test
     void delUser() {
+        postUser(getCommonUserToGet()
+                .withId(null)
+                .withEmail(randomEmail+500));
         delUser(getCommonUserToGet().getId());
     }
 
@@ -576,6 +579,11 @@ class RestAssuredGoRest implements TestLogger {
 
     @Test
     void delPost() {
+        postPost(getCommonPostToGet()
+                .withId(null)
+                .withTitle(String.format("Test title %s", randomNum))
+                .withBody(String.format("Test body %s", randomNum))
+                .withUserId(getCommonUserToGet().getId()));
         delPost(getCommonPostToGet().getId());
     }
 
@@ -601,6 +609,7 @@ class RestAssuredGoRest implements TestLogger {
     void newUserCreateNewPost() {
         User createUser = postUser(new User()
                 .withId(null)
+                .withName("Test user" + randomNum)
                 .withEmail(randomEmail)
                 .withStatus("active")
                 .withGender("male")
