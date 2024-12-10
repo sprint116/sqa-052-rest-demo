@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sqa.model.github.Issue;
 import com.sqa.services.GitHubService;
-import com.sqa.services.GorestService;
+import com.sqa.services.GoRestService;
 import com.sqa.utils.TestLogger;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Test;
@@ -25,12 +25,13 @@ public class RetrofitDemoTest implements TestLogger {
     private Retrofit retrofitGit;
     private Retrofit retrofitGorest;
     private GitHubService gitHubService;
-    private GorestService gorestService;
+    private GoRestService gorestService;
     private static final String GIT_HUB_URL = "https://api.github.com/";
     private static final String GOREST_URL = "https://gorest.co.in/";
 
     private String issueTitle = String.format("issue %s", RandomStringUtils.randomAlphabetic(5));
     private String issueDescription = "Description of new issue";
+    private String token_go_rest  = "Bearer eaeebb68b29e14ba28ac86fdbc4e6914d8492375ab2d5c41447627fd16af8669";
 
     public RetrofitDemoTest() {
         Gson gson = new GsonBuilder()
@@ -50,7 +51,7 @@ public class RetrofitDemoTest implements TestLogger {
                 .build();
 
         this.gitHubService = retrofitGit.create(GitHubService.class);
-        this.gorestService = retrofitGorest.create(GorestService.class);
+        this.gorestService = retrofitGorest.create(GoRestService.class);
     }
 
     /*

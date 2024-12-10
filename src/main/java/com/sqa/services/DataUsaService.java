@@ -7,8 +7,14 @@ import retrofit2.http.Query;
 
 public interface DataUsaService {
     @GET("/api/data")
-    Call<Example> getData(@Query("drilldowns") String drilldowns, @Query("measures") String measures);
+    Call<Example> getData(
+            @Query("drilldowns") String drilldowns,
+            @Query("measures") String measures
+    );
 
     @GET("/api/data")
-    Call<String> getDataRaw(@Query("drilldowns") String drilldowns, @Query("measures") String measures);
+    Call<String> getDataRaw(
+            @Query("drilldowns") String drilldowns,
+            @Query("measures") String measures
+    );
 }
